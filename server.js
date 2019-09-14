@@ -21,5 +21,14 @@ app.get('/api/departments', async(req, res, next)=>{
   }
 });
 
+app.get('/', async(req, res, next)=> {
+  try{
+    res.sendFile(await path.join(__dirname, 'index.html'))
+  }
+  catch(ex){
+    next(ex);
+  }
+});
+
 app.listen(3000);
 

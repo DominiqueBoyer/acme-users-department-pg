@@ -27,6 +27,7 @@ CREATE TABLE department(
   CREATE TABLE users(
     id UUID PRIMARY KEY,
     name VARCHAR(255) UNIQUE NOT NULL,
+    bio TEXT,
     department_id UUID REFERENCES department(id)
   );
 
@@ -35,10 +36,10 @@ CREATE TABLE department(
   INSERT INTO department(id, name) VALUES('${hr_uuid}','HR');
   INSERT INTO department(id, name) VALUES('${marketing_uuid}','MARKETING');
 
-  INSERT INTO users(id, name, department_id) VALUES('${moe_uuid}','moe', '${it_uuid}');
-  INSERT INTO users(id, name, department_id) VALUES('${larry_uuid}','larry', '${sales_uuid}');
-  INSERT INTO users(id, name, department_id) VALUES('${curly_uuid}','curly', '${hr_uuid}');
-  INSERT INTO users(id, name) VALUES('${shep_uuid}','shep');
+  INSERT INTO users(id, name, bio, department_id) VALUES('${moe_uuid}','moe','Moe As a venture capitalist and an executive at several start-ups, Mark Gallion has different versions of his bio all over the internet. You can imagine some are more formal than others. But when it comes to his Twitter bio, he carefully phrased his information in a way that helps him connect with his audience -- specifically, through the use of humor' , '${it_uuid}');
+  INSERT INTO users(id, name, bio, department_id) VALUES('${larry_uuid}','larry', 'Larry brand name is Miss604, and cleverly uses emojis in her Instagram bio to tell visitors exactly what makes her a valuable content creator. Take a look in the screenshot below.', '${sales_uuid}');
+  INSERT INTO users(id, name, bio, department_id) VALUES('${curly_uuid}','curly', 'If you are a marketer, you hve likely heard of Curly. Her list of credentials is lengthy, and if she really wanted to, she could go on and on and on about her accomplishments.', '${hr_uuid}');
+  INSERT INTO users(id, name, bio) VALUES('${shep_uuid}','shep', 'If you are a marketer, you have likely heard of Shep. Her list of credentials is lengthy, and if she really wanted to, she could go on and on and on about her accomplishments.');
 
 `;
 

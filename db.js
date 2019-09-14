@@ -8,8 +8,10 @@ const sales_uuid = uuid.v4();
 const hr_uuid = uuid.v4();
 const marketing_uuid = uuid.v4();
 
+const moe_uuid = uuid.v4();
+
 const SQL = `
-DROP TABLE IF EXISTS usrs;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS department;
 
 CREATE TABLE department(
@@ -23,8 +25,12 @@ CREATE TABLE department(
     department_id UUID REFERENCES department(id)
   );
 
-  INSERT INTO department(id, name) VALUES('${}','IT');
+  INSERT INTO department(id, name) VALUES('${it_uuid}','IT');
+  INSERT INTO department(id, name) VALUES('${sales_uuid}','IT');
+  INSERT INTO department(id, name) VALUES('${hr_uuid}','IT');
+  INSERT INTO department(id, name) VALUES('${marketing_uuid}','IT');
 
+  INSERT INTO users(id, name, department_id) VALUES('${it_uuid}','moe', '${it_uuid}');
 `;
 
 

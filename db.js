@@ -47,5 +47,21 @@ const sync =  async () => {
   console.log('sucess');
 };
 
-sync();
+const getAllUsers = async ()=>{
+  const response = await client.query('SELECT * FROM users');
+  return response.rows
+};
 
+const getAllDepartments = async ()=> {
+  const response = await client.query('SELECT * FROM department');
+  return response.rows
+};
+
+module.exports = {
+  sync,
+  getAllUsers,
+  getAllDepartments
+
+}
+
+sync();
